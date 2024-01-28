@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 50px;
+    }
+
+    #mensaje {
+      font-size: 24px;
+      margin-top: 20px;
+    }
+
+    #botones-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    button {
+      font-size: 18px;
+      padding: 10px 20px;
+      margin: 0 10px;
+    }
+
+    #no-btn {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  </style>
+  <title>¿Me perdonas?</title>
+</head>
+<body>
+
+  <h1>¿Me perdonas?</h1>
+
+  <div id="botones-container">
+    <button id="si-btn" onclick="mostrarAgradecimiento()">Sí</button>
+    <button id="no-btn" onclick="moverNo()">No</button>
+  </div>
+
+  <p id="mensaje"></p>
+
+  <script>
+    function mostrarAgradecimiento() {
+      document.getElementById('mensaje').innerHTML = '¡Gracias, te quiero!';
+      document.getElementById('mensaje').style.fontSize = '36px';
+      document.getElementById('no-btn').style.display = 'none';
+    }
+
+    function moverNo() {
+      const noBtn = document.getElementById('no-btn');
+      const maxX = window.innerWidth - noBtn.clientWidth;
+      const maxY = window.innerHeight - noBtn.clientHeight;
+
+      const newX = Math.floor(Math.random() * maxX);
+      const newY = Math.floor(Math.random() * maxY);
+
+      noBtn.style.left = newX + 'px';
+      noBtn.style.top = newY + 'px';
+    }
+  </script>
+
+</body>
+</html>
